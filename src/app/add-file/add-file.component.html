@@ -1,0 +1,116 @@
+
+
+<div class="outer">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a routerLink="../adminhome"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+        <li><a routerLink="../home"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+   
+      </ul>
+  
+    </div>
+  </nav>
+<div class="flex-container">
+  <div class="button">
+    <button class="btn" id="b1" (click)="c1()"><b>ADD FILES TO EXISTING EXAM</b></button>
+    <button class="btn" id="b2" (click)="c2()"><b>ADD FILES TO NEW EXAM</b></button>
+  </div>
+  <form *ngIf="a" (ngSubmit)="submitFile()" [formGroup]="addForm">
+    <div class="l1">
+      <div class="form-group">
+        <label for="filePath">Enter File Path :</label>
+        <input type="text" id="filePath" name="filePath" class="form-control" formControlName="filePath" placeholder="eg. C\Users\admin\abc.csv">
+      </div>
+    </div>
+    <div class="l1">
+    <div class="form-group">
+      <label for="company">Enter Company Name :</label>
+      <select (change)="fetchexam()" id="company" name="company" class="form-control" formControlName="company" >
+        <option *ngFor="let c of cname" value="{{c}}">{{c}}</option>
+        
+        
+      </select>
+    </div>
+</div>
+<div class="l1">
+  <div class="form-group">
+    <label for="eexam">Enter Exam Name :</label>
+    <select id="eexam" name="eexam" class="form-control" formControlName="eexam">
+      <option *ngFor="let e of exams" value="{{e}}">{{e}}</option>
+      
+      
+    </select>
+  </div>
+</div>
+<div class="l1">
+  <div class="form-group">
+    <label for="level">Enter Level :</label>
+    <select id="level" name="level" class="form-control" formControlName="level">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      
+      
+    </select>
+  </div>
+</div>
+<br>
+<button class="btn" type="submit">Submit</button>
+</form>
+<form *ngIf="b" (ngSubmit)="submitFile()" [formGroup]="addForm">
+  <div class="l1">
+    <div class="form-group">
+      <label for="filePath">Enter File Path :</label>
+      <input type="text" id="filePath" name="filePath" class="form-control" formControlName="filePath" placeholder="eg. C\Users\admin\abc.csv">
+    </div>
+  </div>
+  <div class="l1">
+  <div class="form-group">
+    <label for="company">Enter Company Name :</label>
+    <select id="company" name="company" class="form-control" formControlName="company" >
+      <option *ngFor="let c of cname" value="{{c}}">{{c}}</option>
+      
+      
+    </select>
+  </div>
+</div>
+<div class="l1">
+<div class="form-group">
+  <label for="eexam">Enter Exam Name :</label>
+  
+  <input class="form-control" type="text" id="eexam" name="eexam" formControlName="eexam">
+</div>
+</div>
+<div class="l1">
+  <div class="form-group">
+    <label for="subject">Choose a Subject :</label>
+    <select id="subject" name="subject" class="form-control" formControlName="subject">
+      <option value="Java">Java</option>
+      <option value="Python">Python</option>
+      <option value="C#">C#</option>
+      <option value="SQL">SQL</option>
+      
+    </select>
+  </div>
+</div>
+<div class="l1">
+<div class="form-group">
+  <label for="level">Enter Level :</label>
+  <select id="level" name="level" class="form-control" formControlName="level">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    
+    
+  </select>
+</div>
+</div>
+<br>
+<button class="btn" type="submit">Submit</button>
+</form>
+
+  

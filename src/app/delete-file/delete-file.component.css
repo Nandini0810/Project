@@ -1,0 +1,13 @@
+.outer{
+    background-image: url('../../assets/bg1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:100vh;
+    }
+    #b1{
+        background-color:#181818;
+        color:#808080;
+        height:65px;
+        width:300px;
+        margin-left: 3%;
+        }

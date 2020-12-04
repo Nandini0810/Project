@@ -1,0 +1,150 @@
+<div class="main">
+
+  <div class="regform">
+
+
+    <div *ngIf="isRegister" style="text-align: center; padding-top:20px;">
+
+      <i style="font-size: 120px;" class="fa fa-user" aria-hidden="true"></i>
+      <br>
+<p style="font-size: 40px;"> Registered Successfully</p>
+<a href="/home" style="font-size: 20px;">Back to Login &nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i></a>
+    </div>
+
+    <div *ngIf="!isRegister">
+      <div style="text-align: center;">
+          <p class="cen">Student Registration</p>
+      </div>
+
+      <form [formGroup]="ConForm" (ngSubmit)="SubmitReg()">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Full Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter full name" name="fullname" formControlName="fullname">
+            <span style="color: red;" class=""  *ngIf="fullname.errors && fullname.touched">
+              <span *ngIf="fullname.errors.required">Full Name is Required</span>
+          </span>
+          </div>
+
+          <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email" formControlName="email">
+              <span style="color: red;" class=""  *ngIf="email.errors && email.touched">
+                <span *ngIf="email.errors.required">Email address is Required</span>
+            </span> 
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Phone Number</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter phone number" name="phonenumber" formControlName="phonenumber">
+              <span style="color: red;" class=""  *ngIf="phonenumber.errors && phonenumber.touched">
+                <span *ngIf="phonenumber.errors.required">Phone number is Required</span>
+                <!-- <span *ngIf="phonenumber.errors.pattern">Phone number is not in desired format</span> -->
+            </span> 
+            </div>
+
+
+              <div class="form-group">
+                  <label for="exampleInputEmail1">College Name</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter college name" name="college" formControlName="college">
+                <span style="color: red;" class=""  *ngIf="college.errors && college.touched">
+                  <span *ngIf="college.errors.required">College Name is Required</span>
+              </span>    
+              </div>
+  
+
+            <div class="form-row">
+              <div class="form-group col-md-6" style="float: none;">
+                  <label for="exampleInputEmail1">Date of Birth</label>
+                <input id="Full Name" name="Full Name" placeholder="Full Name" class="form-control" type="date" name="dob" formControlName="dob">
+                <span style="color: red;" class="" *ngIf="dob.errors && dob.touched">
+                  <span style="color: red;" *ngIf="dob.errors.required">Date of Birth is Required</span>
+              </span>
+              </div>
+          </div>
+
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="exampleInputEmail1">City</label>
+                <input id="Full Name" name="Full Name" placeholder="Eg:- Mumbai" class="form-control" type="text" name="city" formControlName="city">
+                <span style="color: red;" class=""  *ngIf="city.errors && city.touched">
+                  <span *ngIf="city.errors.required">City is Required</span>
+              </span>
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="exampleInputEmail1">State</label>
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Eg:- Delhi" name="state" formControlName="state">
+                <span style="color: red;" class=""  *ngIf="state.errors && state.touched">
+                  <span *ngIf="state.errors.required">State is Required</span>
+              </span>
+              </div>
+            </div>
+
+
+
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="exampleInputEmail1">Qualification</label>
+                  <select class="form-control" id="exampleFormControlSelect1" name="qualification" formControlName="qualification">
+                      <option>BE</option>
+                      <option selected>B Tech</option>
+                      <option>BSC</option>
+                  </select>
+                  <span style="color: red;" class=""  *ngIf="qualification.errors && qualification.touched">
+                    <span *ngIf="qualification.errors.required">Qualification is Required</span>
+                </span>
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="exampleInputEmail1">Year of Completion</label>
+                <select class="form-control"  id="exampleFormControlSelect1" name="yoc" formControlName="yoc">
+                  <option selected>2019</option>
+                  <option>2020</option>
+                  <option>2021</option>
+              </select>
+              <span style="color: red;" class=""  *ngIf="yoc.errors && yoc.touched">
+                <span *ngIf="yoc.errors.required">Year of Completion is Required</span>
+            </span>
+              </div>
+            </div>
+
+
+            
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="exampleInputEmail1">Password</label>
+                  <input type="text" class="form-control" id="inputEmail4" placeholder="" name="password1" formControlName="password1">
+                  <span style="color: red;" class=""  *ngIf="password1.errors && password1.touched">
+                    
+                <span *ngIf="password1.errors.required">Password is Required</span>
+                  <span *ngIf="password1.errors.pattern">incorrect format</span>
+                </span>
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="exampleInputEmail1">Confirm Password</label>
+                <input type="password" class="form-control" id="inputEmail4" placeholder="" name="password2" formControlName="password2">
+            
+                <span style="color: red;" class=""  *ngIf="ConForm.hasError('notSame')">
+                <span *ngIf="ConForm.hasError('notSame')">Password is not Same</span>
+                </span>
+            
+              </div>
+            </div>
+
+            <!-- <div class="form-row">
+              <div class="form-group col-md-6">
+          <div id="capcha_element" class="g-recaptcha" data-callback="getResponceCapcha" [attr.data-sitekey]="siteKeyCaptcha">
+          </div>
+          </div>
+      </div> -->
+            <div style="text-align: center;">
+              <button class="but" [disabled] ="ConForm.invalid" type="submit">Register</button>
+              </div>
+      </form>
+
+      <div style="text-align: center;">
+          <a routerLink="../home">Already have an account? Login...</a>
+      </div>
+
+  </div>
+</div>
+</div>

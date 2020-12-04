@@ -1,0 +1,34 @@
+<div class="main">
+
+    <div class="regform">
+
+
+        <div style="text-align: center;">
+            <p class="cen">Welcome. <br/> Please Select a Test</p>
+        </div>
+
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+            
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1">Select Company</label>
+                    <select (change)="fetchSubject()" class="browser-default custom-select" formControlName="companyName">  
+                        <option value="" selected class="form-control">Choose your Company</option>
+                        <option *ngFor="let company of companydetails" class="form-control">{{company}} </option>  
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1">Select Available Subject</label>
+                    <select class="browser-default custom-select" formControlName="subjectName">  
+                        <option value="" selected class="form-control">Choose your Subject</option>    
+                        <option *ngFor="let subject of subjectdetails" class="form-control">{{subject}}</option>
+                            
+                    </select>
+                </div>
+            </div> <br>
+            <button type="submit" class="btn btn-warning btn-rounded btn-lg btn-block">Submit</button>
+            
+        </form>
+    </div>
+
+</div>
